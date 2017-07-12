@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-12T02:39:41.000Z</updated>
+  <updated>2017-07-12T06:37:42.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习案例视频(转)</title>
+    <link href="http://yoursite.com/2017/07/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A1%88%E4%BE%8B%E8%A7%86%E9%A2%91-%E8%BD%AC/"/>
+    <id>http://yoursite.com/2017/07/12/机器学习案例视频-转/</id>
+    <published>2017-07-12T06:30:36.000Z</published>
+    <updated>2017-07-12T06:37:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果没记错的话,“数加”应该是国内优秀的专注于大数据及机器学习的公司华院数据旗下的。</p>
+<p>阿里云的服务是越来越齐全，产品线覆盖方方面面，机器学习当然也不能落下。</p>
+<p>移动互联网时代数据是pc互联网的n倍，而2016年国内物联网协议标准落定后，未来数据量估计又得井喷了。</p>
+<p>挖掘数据价值的产品将会是每个公司都要考虑的事情。</p>
+<p>下面是阿里云数加相关的视频资料，mark一下，学习。</p>
+<p><a href="https://data.aliyun.com/experience?spm=a2c0j.8278987.630147.1.3e1525b81HAd7t" target="_blank" rel="external">阿里云数加大数据体验馆-业内首例，帮你轻松玩转DT时代！</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果没记错的话,“数加”应该是国内优秀的专注于大数据及机器学习的公司华院数据旗下的。&lt;/p&gt;
+&lt;p&gt;阿里云的服务是越来越齐全，产品线覆盖方方面面，机器学习当然也不能落下。&lt;/p&gt;
+&lt;p&gt;移动互联网时代数据是pc互联网的n倍，而2016年国内物联网协议标准落定后，未来数据量估
+    
+    </summary>
+    
+      <category term="学习资源" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="视频教程" scheme="http://yoursite.com/tags/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Serverless Ifttt?</title>
