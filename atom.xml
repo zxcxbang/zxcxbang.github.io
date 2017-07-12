@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-29T13:27:12.000Z</updated>
+  <updated>2017-07-12T02:39:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Serverless Ifttt?</title>
+    <link href="http://yoursite.com/2017/07/12/Serverless-Ifttt/"/>
+    <id>http://yoursite.com/2017/07/12/Serverless-Ifttt/</id>
+    <published>2017-07-12T02:36:10.000Z</published>
+    <updated>2017-07-12T02:39:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>2014年amazon推出lambda，2017年阿里云、腾讯云推出无服务，技术又一轮演变</p>
+<p><a href="http://www.infoq.com/cn/news/2017/06/tengxun-cloud-serverless" target="_blank" rel="external">腾讯云无服务</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2014年amazon推出lambda，2017年阿里云、腾讯云推出无服务，技术又一轮演变&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.infoq.com/cn/news/2017/06/tengxun-cloud-serverless&quot; target=&quot;_bla
+    
+    </summary>
+    
+      <category term="业界动态" scheme="http://yoursite.com/categories/%E4%B8%9A%E7%95%8C%E5%8A%A8%E6%80%81/"/>
+    
+    
+      <category term="serverless" scheme="http://yoursite.com/tags/serverless/"/>
+    
+  </entry>
   
   <entry>
     <title>Serverless无服务入门</title>
@@ -35,9 +60,9 @@
     </summary>
     
     
-      <category term="无服务" scheme="http://yoursite.com/tags/%E6%97%A0%E6%9C%8D%E5%8A%A1/"/>
-    
       <category term="serverless" scheme="http://yoursite.com/tags/serverless/"/>
+    
+      <category term="无服务" scheme="http://yoursite.com/tags/%E6%97%A0%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
