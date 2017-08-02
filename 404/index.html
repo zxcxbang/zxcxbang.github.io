@@ -96,8 +96,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/404/index.html" data-id="cj5upnh790000sfzv5z1lnitr" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/404/index.html" data-id="cj5uprlbf0000t1zv4bslr6cu" class="article-share-link">分享</a>
       
+      
+        <a href="http://yoursite.com/404/index.html#disqus_thread" class="article-comment-link">留言</a>
       
       
     </footer>
@@ -112,12 +114,19 @@
   <div class="comments" id="comments">
     
      
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
        
        
       
       
-           <div id="gitment_comments"></div>
-    
   </div>
  
   
@@ -208,34 +217,28 @@ window.onload = function() {
 </script>
       
 
+<script>
+  var disqus_shortname = 'allen-ever-logs';
   
-
+  var disqus_url = 'http://yoursite.com/404/index.html';
   
-
-
-
-
-
-
-
-<!-- author:forvoid begin -->
-<!-- author:forvoid begin -->
-
-  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> 
-  <script>
-  var gitment = new Gitment({
-    // id: '页面 ID', // 可选。默认为 location.href
-    owner: 'allenbang',
-    repo: 'allenbang.github.io',
-    oauth: {
-    client_id: '8f6ec99f0297454d026a',
-    client_secret: '762f40e652864fe5f3b40b6416d60ed51c54765d',
-    }
-  })
-  gitment.render(document.getElementById("gitment_comments"))
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 </script>
 
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
 
 <!-- author:forvoid end -->
 
