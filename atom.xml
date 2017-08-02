@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-12T07:28:24.000Z</updated>
+  <updated>2017-08-02T07:48:16.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DockerHub public images - Hadoop, Kafka, ZooKeeper, HBase, Cassandra</title>
+    <link href="http://yoursite.com/2017/08/02/DockerHub-public-images-Hadoop-Kafka-ZooKeeper-HBase-Cassandra/"/>
+    <id>http://yoursite.com/2017/08/02/DockerHub-public-images-Hadoop-Kafka-ZooKeeper-HBase-Cassandra/</id>
+    <published>2017-08-02T07:40:28.000Z</published>
+    <updated>2017-08-02T07:48:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>以前开发人员在机器里总要装一大堆中间件，而且配置复杂，版本又容易冲突。docker真是开发人员的福音从去年开始，公司的一部分环境也使用docker部署，自己的开发机器上也不再搞得那么凌乱了。 </p>
+<p>有人搞了一堆dockerfiles，要什么有什么，平时用来验证点程序，开箱即用。</p>
+<p>GitHub - HariSekhon/Dockerfiles: DockerHub public images - Hadoop, Kafka, ZooKeeper, HBase, Cassandra, Solr / SolrCloud, Apache Drill, Nifi, Serf, Consul, Mesos, Spark standalone, Riak, Alluxio, Jython, Advanced Nagios Plugins Collection / PyTools / Tools repos on CentOS / Ubuntu / Debian / Alpine<br><a href="https://github.com/HariSekhon/Dockerfiles" target="_blank" rel="external">https://github.com/HariSekhon/Dockerfiles</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以前开发人员在机器里总要装一大堆中间件，而且配置复杂，版本又容易冲突。docker真是开发人员的福音从去年开始，公司的一部分环境也使用docker部署，自己的开发机器上也不再搞得那么凌乱了。 &lt;/p&gt;
+&lt;p&gt;有人搞了一堆dockerfiles，要什么有什么，平时用来验证点程
+    
+    </summary>
+    
+      <category term="资源收藏" scheme="http://yoursite.com/categories/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/"/>
+    
+    
+      <category term="docker" scheme="http://yoursite.com/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>机器学习案例视频(转)</title>
