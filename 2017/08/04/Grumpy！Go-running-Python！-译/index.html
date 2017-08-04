@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="banglog">
 <meta property="og:description" content="原文链接：https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html 到目前为止，谷歌日常运行着几百万行Python代码。旗下的视频网站YouTube的前端部分、YouTube API都是基于python写的。这些Python程序在生产环境下，承载着每秒几百万的请求。YouTube前端是运行在CPython2.7上">
 <meta property="og:image" content="http://rkthub.cn/2017/08/04/Grumpy！Go-running-Python！-译/fib_benchmark.png">
-<meta property="og:updated_time" content="2017-08-04T09:17:57.000Z">
+<meta property="og:updated_time" content="2017-08-04T09:25:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Grumpy！Go running Python！(译)">
 <meta name="twitter:description" content="原文链接：https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html 到目前为止，谷歌日常运行着几百万行Python代码。旗下的视频网站YouTube的前端部分、YouTube API都是基于python写的。这些Python程序在生产环境下，承载着每秒几百万的请求。YouTube前端是运行在CPython2.7上">
@@ -378,8 +378,8 @@
 
       
         <p>原文链接：<a href="https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html" target="_blank" rel="external">https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html</a></p>
-<p>到目前为止，谷歌日常运行着几百万行Python代码。旗下的视频网站YouTube的前端部分、YouTube API都是基于python写的。这些Python程序在生产环境下，承载着每秒几百万的请求。YouTube前端是运行在CPython2.7上的，我们在CPython2.7上为了提高运行性能和调整优化程序，投入了很多工作。虽然这些努力产生了不错的成果，但我们依旧很难避开一个老问题：在CPython之上开发高效并发的程序总是一件很难做好的事。</p>
-<p>为了解决这个问题，我们甚至开发了许多Python运行时，每个都各有所权衡，但都没办法很好地在解决Python并发问题的同时而不引入其他问题。所以我们向自己提了一个很疯狂的问题：如果我们能实现一个针对实时服务的运行时的优化方案会怎样呢？一旦我们往这个方向深入问题，使用Go作为基础平台就貌似是一件很不错的选择，因为go的运行特性(例如轻量级线程,goroutine?)很适合我们的情况。我们需要互操作性强的语言，而Go强大的运行时反射系统就可以直接派上用场了。我们觉得Go来承载Python很自然，所以Grumpy项目就应运而生了。</p>
+<p>到目前为止，谷歌日常运行着几百万行Python代码。旗下的视频网站YouTube的前端部分、YouTube API都是基于python写的。这些Python程序在生产环境下，承载着每秒几百万的请求。YouTube前端是运行在CPython2.7上的，我们在CPython2.7上为了提高运行性能和调整优化程序，投入了很多工作。虽然这些努力取得了不错的成果，但我们依旧很难避开一个老问题：在CPython之上开发高效并发的程序总是一件很难做好的事。</p>
+<p>为了解决这个问题，我们调查查看了许多Python运行时，每个都各有所权衡，但都没有解决Python并发问题的同时而不引入其他问题。所以我们向自己提了一个很疯狂的问题：如果我们能实现一个针对实时服务的运行时的优化方案会怎样呢？一旦我们往这个方向深入问题，使用Go作为基础平台就貌似是一件很不错的选择，因为go的运行特性(例如轻量级线程,goroutine?)很适合我们的情况。我们需要互操作性强的语言，而Go强大的运行时反射系统就可以直接派上用场了。我们觉得Go来承载Python很自然，所以Grumpy项目就应运而生了。</p>
 <p>Grumpy是为Go提供的Python运行时，尚处于实验性阶段。Grumpy将Python代码翻译成Go代码，这些代码可以无缝的运行在Go环境中。因为我们需要支持谷歌现存的庞大的Python代码库，所以对我们来说，兼容并且高度兼容CPython(当然也包括CPython的缺点)就是一件很重要的事。目标就是Grumpy可以拿来即用，直接搞定任何纯Python的项目，而无需修改Python项目的代码。</p>
 <p>我们在设计上做了两个重要的抉择，这些决定同时也带来了一些影响。<br><strong>一、我们决定不支持Python的C扩展模块</strong><br>这意味着Grumpy不能利用Python中大量丰富的C扩展功能，但这样给我们带来很多的灵活性，例如可以灵活地针对并行负载设计API和对象表示。特别要提的一点是，Grumpy没有GIL问题，并且它利用了Go的垃圾收集器来管理对象的生命周期，而不是依赖使用引用计数。我们认为Grumpy在很多实际的工作中，比CPython在扩展上优雅得多。我们可以看下用Grumpy生成Fib数列的情况，跟CPython做比较，一窥Grumpy的潜力。</p>
 <p><img src="/2017/08/04/Grumpy！Go-running-Python！-译/fib_benchmark.png" alt=""></p>
