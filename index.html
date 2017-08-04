@@ -261,6 +261,183 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://rkthub.cn/2017/08/04/Grumpy！Go-running-Python！-译/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="banglog">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="banglog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/04/Grumpy！Go-running-Python！-译/" itemprop="url">Grumpy！Go running Python！(译)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-04T16:53:35+08:00">
+                2017-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/04/Grumpy！Go-running-Python！-译/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/04/Grumpy！Go-running-Python！-译/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/08/04/Grumpy！Go-running-Python！-译/" class="leancloud_visitors" data-flag-title="Grumpy！Go running Python！(译)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>原文链接：<a href="https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html" target="_blank" rel="external">https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html</a></p>
+<p>到目前为止，谷歌日常运行着几百万行Python代码。旗下的视频网站YouTube的前端部分、YouTube API都是基于python写的。这些Python程序在生产环境下，承载着每秒几百万的请求。YouTube前端是运行在CPython2.7上的，我们在CPython2.7上为了提高运行性能和调整优化程序，投入了很多工作。虽然这些努力产生了不错的成果，但我们依旧很难避开一个老问题：在CPython之上开发高效并发的程序总是一件很难做好的事。</p>
+<p>为了解决这个问题，我们甚至开发了许多Python运行时，每个都各有所权衡，但都没办法很好地在解决Python并发问题的同时而不引入其他问题。所以我们向自己提了一个很疯狂的问题：如果我们能实现一个针对实时服务的运行时的优化方案会怎样呢？一旦我们往这个方向深入问题，使用Go作为基础平台就貌似是一件很不错的选择，因为go的运行特性(例如轻量级线程,goroutine?)很适合我们的情况。我们需要互操作性强的语言，而Go强大的运行时反射系统就可以直接派上用场了。我们觉得Go来承载Python很自然，所以Grumpy项目就应运而生了。</p>
+<p>Grumpy是为Go提供的Python运行时，尚处于实验性阶段。Grumpy将Python代码翻译成Go代码，这些代码可以无缝的运行在Go环境中。因为我们需要支持谷歌现存的庞大的Python代码库，所以对我们来说，兼容并且高度兼容CPython(当然也包括CPython的缺点)就是一件很重要的事。目标就是Grumpy可以拿来即用，直接搞定任何纯Python的项目，而无需修改Python项目的代码。</p>
+<p>我们在设计上做了两个重要的抉择，这些决定同时也带来了一些影响。<br><strong>一、我们决定不支持Python的C扩展模块</strong><br>这意味着Grumpy不能利用Python中大量丰富的C扩展功能，但这样给我们带来很多的灵活性，例如可以灵活地针对并行负载设计API和对象表示。特别要提的一点是，Grumpy没有GIL问题，并且它利用了Go的垃圾收集器来管理对象的生命周期，而不是依赖使用引用计数。我们认为Grumpy在很多实际的工作中，比CPython在扩展上优雅得多。我们可以看下用Grumpy生成Fib数列的情况，跟CPython做比较，一窥Grumpy的潜力。</p>
+<p><img src="/2017/08/04/Grumpy！Go-running-Python！-译/fib_benchmark.png" alt=""></p>
+<p><strong>二、Grumpy并不是一个解释器</strong><br>Grumpy本身的程序是像普通Go程序一样被编译和链接的，这样做的副作用就是开发部署上缺乏灵活性，但它具备一些好处，一是它通过静态程序分析在编译时进行优化，另外最大的好处是它具备了跟Go代码互相协作的能力，这很直接也很强大。Grumpy程序可以导入Go包就像import Python模块一样。例如以下Python代码，它使用了Go标准库中的net/http模块来启动一个简单的http服务器。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __go__.net.http <span class="keyword">import</span> ListenAndServe, RedirectHandler</div><div class="line"></div><div class="line">handler = RedirectHandler(<span class="string">'http://github.com/google/grumpy'</span>, <span class="number">303</span>)</div><div class="line">ListenAndServe(<span class="string">'127.0.0.1:8080'</span>, handler)</div></pre></td></tr></table></figure>
+<p>我们对Grumpy的前景感到很兴奋，虽然现在Grumpy仍处于aplpha阶段，但绝大多数的语言组件和很多内置核心类型都能正常工作。当然，还有很多事情要做，包括很多内置类型还缺失属性或函数，没有内置函数，标准库实际上是空的。如果你发现有些功能你希望能做到的，可以第一时间提问题给我们，当然了，更好的是给我们贡献代码。</p>
+<p>译注:</p>
+<ul>
+<li><a href="https://github.com/google/grumpy" target="_blank" rel="external">Grumpy代码仓库位置</a></li>
+<li>目前Grumpy只支持 Python2.7, 据说Google 的很多代码还是以该版本为主。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://rkthub.cn/2017/08/02/DockerHub-public-images-Hadoop-Kafka-ZooKeeper-HBase-Cassandra/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -910,172 +1087,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://rkthub.cn/2017/06/28/YC-Startup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="banglog">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="banglog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/28/YC-Startup/" itemprop="url">YC Startup</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-28T22:32:58+08:00">
-                2017-06-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习资源/" itemprop="url" rel="index">
-                    <span itemprop="name">学习资源</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/06/28/YC-Startup/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/28/YC-Startup/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/06/28/YC-Startup/" class="leancloud_visitors" data-flag-title="YC Startup">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>2年前看过硅谷著名投资机构YC的创业课，最近又浏览看了下，受益匪浅。虽然是几年前的课程了，但对于创业者和冲动想创业的人非常实用，涵盖创业的方方面面。即使互联网讯息万变。有些道理依旧不变。创业人士及准备创业的人士可以看看。</p>
-<p><a href="http://startupclass.club/" target="_blank" rel="external">YC创业课中文社区</a></p>
-<p>在此也对辛苦翻译这些视频的同学们表示感谢。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1126,7 +1137,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1137,7 +1148,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1148,7 +1159,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

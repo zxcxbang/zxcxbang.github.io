@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,Go," />
 
 
 
@@ -96,12 +96,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="banglog">
-<meta property="og:url" content="http://rkthub.cn/archives/2017/index.html">
+<meta name="description" content="原文链接：https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html 到目前为止，谷歌日常运行着几百万行Python代码。旗下的视频网站YouTube的前端部分、YouTube API都是基于python写的。这些Python程序在生产环境下，承载着每秒几百万的请求。YouTube前端是运行在CPython2.7上">
+<meta name="keywords" content="Python,Go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grumpy！Go running Python！(译)">
+<meta property="og:url" content="http://rkthub.cn/2017/08/04/Grumpy！Go-running-Python！-译/index.html">
 <meta property="og:site_name" content="banglog">
+<meta property="og:description" content="原文链接：https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html 到目前为止，谷歌日常运行着几百万行Python代码。旗下的视频网站YouTube的前端部分、YouTube API都是基于python写的。这些Python程序在生产环境下，承载着每秒几百万的请求。YouTube前端是运行在CPython2.7上">
+<meta property="og:image" content="http://rkthub.cn/2017/08/04/Grumpy！Go-running-Python！-译/fib_benchmark.png">
+<meta property="og:updated_time" content="2017-08-04T09:17:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="banglog">
+<meta name="twitter:title" content="Grumpy！Go running Python！(译)">
+<meta name="twitter:description" content="原文链接：https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html 到目前为止，谷歌日常运行着几百万行Python代码。旗下的视频网站YouTube的前端部分、YouTube API都是基于python写的。这些Python程序在生产环境下，承载着每秒几百万的请求。YouTube前端是运行在CPython2.7上">
+<meta name="twitter:image" content="http://rkthub.cn/2017/08/04/Grumpy！Go-running-Python！-译/fib_benchmark.png">
 
 
 
@@ -130,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://rkthub.cn/archives/2017/"/>
+  <link rel="canonical" href="http://rkthub.cn/2017/08/04/Grumpy！Go-running-Python！-译/"/>
 
 
 
 
 
-  <title>归档 | banglog</title>
+  <title>Grumpy！Go running Python！(译) | banglog</title>
   
 
 
@@ -161,7 +168,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,226 +252,229 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://rkthub.cn/2017/08/04/Grumpy！Go-running-Python！-译/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="banglog">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="banglog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Grumpy！Go running Python！(译)</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-04T16:53:35+08:00">
+                2017-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 9 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">技术笔记</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/04/Grumpy！Go-running-Python！-译/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/04/Grumpy！Go-running-Python！-译/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2017/08/04/Grumpy！Go-running-Python！-译/" class="leancloud_visitors" data-flag-title="Grumpy！Go running Python！(译)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/04/Grumpy！Go-running-Python！-译/" itemprop="url">
-              
-                <span itemprop="name">Grumpy！Go running Python！(译)</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-04T16:53:35+08:00"
-              content="2017-08-04" >
-          08-04
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/02/DockerHub-public-images-Hadoop-Kafka-ZooKeeper-HBase-Cassandra/" itemprop="url">
-              
-                <span itemprop="name">DockerHub public images - Hadoop, Kafka, ZooKeeper, HBase, Cassandra</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-02T15:40:28+08:00"
-              content="2017-08-02" >
-          08-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/12/机器学习案例视频-转/" itemprop="url">
-              
-                <span itemprop="name">机器学习案例视频(转)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-12T14:30:36+08:00"
-              content="2017-07-12" >
-          07-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/12/Serverless-Ifttt/" itemprop="url">
-              
-                <span itemprop="name">Serverless Ifttt?</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-12T10:36:10+08:00"
-              content="2017-07-12" >
-          07-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>原文链接：<a href="https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html" target="_blank" rel="external">https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html</a></p>
+<p>到目前为止，谷歌日常运行着几百万行Python代码。旗下的视频网站YouTube的前端部分、YouTube API都是基于python写的。这些Python程序在生产环境下，承载着每秒几百万的请求。YouTube前端是运行在CPython2.7上的，我们在CPython2.7上为了提高运行性能和调整优化程序，投入了很多工作。虽然这些努力产生了不错的成果，但我们依旧很难避开一个老问题：在CPython之上开发高效并发的程序总是一件很难做好的事。</p>
+<p>为了解决这个问题，我们甚至开发了许多Python运行时，每个都各有所权衡，但都没办法很好地在解决Python并发问题的同时而不引入其他问题。所以我们向自己提了一个很疯狂的问题：如果我们能实现一个针对实时服务的运行时的优化方案会怎样呢？一旦我们往这个方向深入问题，使用Go作为基础平台就貌似是一件很不错的选择，因为go的运行特性(例如轻量级线程,goroutine?)很适合我们的情况。我们需要互操作性强的语言，而Go强大的运行时反射系统就可以直接派上用场了。我们觉得Go来承载Python很自然，所以Grumpy项目就应运而生了。</p>
+<p>Grumpy是为Go提供的Python运行时，尚处于实验性阶段。Grumpy将Python代码翻译成Go代码，这些代码可以无缝的运行在Go环境中。因为我们需要支持谷歌现存的庞大的Python代码库，所以对我们来说，兼容并且高度兼容CPython(当然也包括CPython的缺点)就是一件很重要的事。目标就是Grumpy可以拿来即用，直接搞定任何纯Python的项目，而无需修改Python项目的代码。</p>
+<p>我们在设计上做了两个重要的抉择，这些决定同时也带来了一些影响。<br><strong>一、我们决定不支持Python的C扩展模块</strong><br>这意味着Grumpy不能利用Python中大量丰富的C扩展功能，但这样给我们带来很多的灵活性，例如可以灵活地针对并行负载设计API和对象表示。特别要提的一点是，Grumpy没有GIL问题，并且它利用了Go的垃圾收集器来管理对象的生命周期，而不是依赖使用引用计数。我们认为Grumpy在很多实际的工作中，比CPython在扩展上优雅得多。我们可以看下用Grumpy生成Fib数列的情况，跟CPython做比较，一窥Grumpy的潜力。</p>
+<p><img src="/2017/08/04/Grumpy！Go-running-Python！-译/fib_benchmark.png" alt=""></p>
+<p><strong>二、Grumpy并不是一个解释器</strong><br>Grumpy本身的程序是像普通Go程序一样被编译和链接的，这样做的副作用就是开发部署上缺乏灵活性，但它具备一些好处，一是它通过静态程序分析在编译时进行优化，另外最大的好处是它具备了跟Go代码互相协作的能力，这很直接也很强大。Grumpy程序可以导入Go包就像import Python模块一样。例如以下Python代码，它使用了Go标准库中的net/http模块来启动一个简单的http服务器。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __go__.net.http <span class="keyword">import</span> ListenAndServe, RedirectHandler</div><div class="line"></div><div class="line">handler = RedirectHandler(<span class="string">'http://github.com/google/grumpy'</span>, <span class="number">303</span>)</div><div class="line">ListenAndServe(<span class="string">'127.0.0.1:8080'</span>, handler)</div></pre></td></tr></table></figure>
+<p>我们对Grumpy的前景感到很兴奋，虽然现在Grumpy仍处于aplpha阶段，但绝大多数的语言组件和很多内置核心类型都能正常工作。当然，还有很多事情要做，包括很多内置类型还缺失属性或函数，没有内置函数，标准库实际上是空的。如果你发现有些功能你希望能做到的，可以第一时间提问题给我们，当然了，更好的是给我们贡献代码。</p>
+<p>译注:</p>
+<ul>
+<li><a href="https://github.com/google/grumpy" target="_blank" rel="external">Grumpy代码仓库位置</a></li>
+<li>目前Grumpy只支持 Python2.7, 据说Google 的很多代码还是以该版本为主。</li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/29/Serverless无服务入门/" itemprop="url">
-              
-                <span itemprop="name">Serverless无服务入门</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-29T21:04:08+08:00"
-              content="2017-06-29" >
-          06-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/Go/" rel="tag"># Go</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/02/DockerHub-public-images-Hadoop-Kafka-ZooKeeper-HBase-Cassandra/" rel="next" title="DockerHub public images - Hadoop, Kafka, ZooKeeper, HBase, Cassandra">
+                <i class="fa fa-chevron-left"></i> DockerHub public images - Hadoop, Kafka, ZooKeeper, HBase, Cassandra
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -472,6 +482,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -697,11 +718,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
@@ -720,6 +739,18 @@
       <script id="dsq-count-scr" src="https://allen-ever-logs.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://rkthub.cn/2017/08/04/Grumpy！Go-running-Python！-译/';
+          this.page.identifier = '2017/08/04/Grumpy！Go-running-Python！-译/';
+          this.page.title = 'Grumpy！Go running Python！(译)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://allen-ever-logs.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
