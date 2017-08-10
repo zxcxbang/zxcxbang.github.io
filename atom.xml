@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rkthub.cn/"/>
-  <updated>2017-08-10T13:31:13.000Z</updated>
+  <updated>2017-08-10T13:34:44.000Z</updated>
   <id>http://rkthub.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://rkthub.cn/2017/08/10/grumpy%E4%BD%BF%E7%94%A8/"/>
     <id>http://rkthub.cn/2017/08/10/grumpy使用/</id>
     <published>2017-08-10T12:44:09.000Z</published>
-    <updated>2017-08-10T13:31:13.000Z</updated>
+    <updated>2017-08-10T13:34:44.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Grumpy"><a href="#Grumpy" class="headerlink" title="Grumpy"></a>Grumpy</h1><p>grumpy是google的一个开源项目，可以将Python代码编译成Go代码，从而最后编译成静态可执行程序，不再需要VM。 基本上编译的流程是这样：python code –&gt; grumpc –&gt; golang code –&gt; Binary。grumpy意思是Go running Python。</p>
 <h2 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h2><p>grumpy包括grumpy compiler(grumpc)、grumpy runtime(golang runtime)、grumpy library(Python third library or golang lib) 三部分。</p>
@@ -28,9 +28,9 @@
 <li>不支持exec，eval, compile等动态特性，因为grumpy是把Python代码编译成静态的Go代码。</li>
 <li>不支持C扩展</li>
 </ul>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h3 id="方法1-make-run命令行运行"><a href="#方法1-make-run命令行运行" class="headerlink" title="方法1: make run命令行运行"></a>方法1: make run命令行运行</h3><p>最简单的就是在命令行直接执行make run，它实际上是使用了一个grumprun脚本，从标准输入中读取python代码并编译和运行，以下命令默认是在Grumpy源代码根目录下执行</p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="方法1-make-run命令行运行"><a href="#方法1-make-run命令行运行" class="headerlink" title="方法1: make run命令行运行"></a>方法1: make run命令行运行</h2><p>最简单的就是在命令行直接执行make run，它实际上是使用了一个grumprun脚本，从标准输入中读取python代码并编译和运行，以下命令默认是在Grumpy源代码根目录下执行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;print &apos;hello, world&apos;&quot; | make run</div></pre></td></tr></table></figure>
-<h3 id="方法2-grumpc-and-grumprun"><a href="#方法2-grumpc-and-grumprun" class="headerlink" title="方法2: grumpc and grumprun:"></a>方法2: grumpc and grumprun:</h3><p>对于复杂的程序，可以使用grumpc编译成Go代码，最后再使用Go build编译成可执行程序。 由于程序最后都是静态链接，所以Grumpy工具链必须在GOPATH路径下能找到所有编译后的Go模块。Grumpy在GOPATH的下__python__子目录查找对应的Go模块。</p>
+<h2 id="方法2-grumpc-and-grumprun"><a href="#方法2-grumpc-and-grumprun" class="headerlink" title="方法2: grumpc and grumprun:"></a>方法2: grumpc and grumprun:</h2><p>对于复杂的程序，可以使用grumpc编译成Go代码，最后再使用Go build编译成可执行程序。 由于程序最后都是静态链接，所以Grumpy工具链必须在GOPATH路径下能找到所有编译后的Go模块。Grumpy在GOPATH的下__python__子目录查找对应的Go模块。</p>
 <p>首先设置环境变量,主要是Grumpy runtime的目录和Python模块目录。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line">export PATH=$PWD/build/bin:$PATH</div><div class="line">export GOPATH=$PWD/build</div><div class="line">export PYTHONPATH=$PWD/build/lib/python2.7/site-packages</div></pre></td></tr></table></figure>
 <p>先用下面的命令检测环境变量设置有没有问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &apos;import sys; print sys.version&apos; | grumprun</div></pre></td></tr></table></figure></p>
@@ -41,8 +41,8 @@
 <p>现在就可以在python代码中引入”__python__/hello”模块,使用grumprun来运行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &apos;from hello import hello; hello()&apos; | grumprun</div></pre></td></tr></table></figure>
 <p>1.把python代码编译成Go包<br>2.编写一个Go主程序并且引入第一步生成的包<br>3.执行<code>go run</code> 第二步中的Go程序</p>
-<h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">echo &apos;print &quot;hello, world&quot;&apos; &gt; hello.py</div><div class="line">make</div><div class="line">export GOPATH=$PWD/build</div><div class="line">export PYTHONPATH=$PWD/build/lib/python2.7/site-packages</div><div class="line">tools/grumpc hello.py &gt; hello.go</div><div class="line">go build -o hello hello.go</div><div class="line">./hello</div></pre></td></tr></table></figure>
-<p>在新的grumpy代码中，使用上面的方法会报错，主要作者在优化编译的方法, 后续应该会解决这个问题。<br>具体可以参考这个链接 <a href="https://github.com/google/grumpy/issues/366" target="_blank" rel="external">https://github.com/google/grumpy/issues/366</a></p>
+<h2 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">echo &apos;print &quot;hello, world&quot;&apos; &gt; hello.py</div><div class="line">make</div><div class="line">export GOPATH=$PWD/build</div><div class="line">export PYTHONPATH=$PWD/build/lib/python2.7/site-packages</div><div class="line">tools/grumpc hello.py &gt; hello.go</div><div class="line">go build -o hello hello.go</div><div class="line">./hello</div></pre></td></tr></table></figure>
+<p>在新的grumpy代码中，使用上面的方法会报错，主要作者尚在优化编译的方法过程中, 后续应该会解决这个问题。<br>具体可以参考这个链接 <a href="https://github.com/google/grumpy/issues/366" target="_blank" rel="external">https://github.com/google/grumpy/issues/366</a></p>
 ]]></content>
     
     <summary type="html">
