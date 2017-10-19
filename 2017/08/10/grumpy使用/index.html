@@ -103,7 +103,8 @@
 <meta property="og:url" content="http://rkthub.cn/2017/08/10/grumpy使用/index.html">
 <meta property="og:site_name" content="banglog">
 <meta property="og:description" content="Grumpygrumpy是google的一个开源项目，可以将Python代码编译成Go代码，从而最后编译成静态可执行程序，不再需要VM。 基本上编译的流程是这样：python code –&amp;gt; grumpc –&amp;gt; golang code –&amp;gt; Binary。grumpy意思是Go running Python。 组成grumpy包括grumpy compiler(grumpc)、g">
-<meta property="og:updated_time" content="2017-08-10T13:34:44.000Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-15T14:20:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="grumpy使用">
 <meta name="twitter:description" content="Grumpygrumpy是google的一个开源项目，可以将Python代码编译成Go代码，从而最后编译成静态可执行程序，不再需要VM。 基本上编译的流程是这样：python code –&amp;gt; grumpc –&amp;gt; golang code –&amp;gt; Binary。grumpy意思是Go running Python。 组成grumpy包括grumpy compiler(grumpc)、g">
@@ -396,7 +397,7 @@
 <p>1.把python代码编译成Go包<br>2.编写一个Go主程序并且引入第一步生成的包<br>3.执行<code>go run</code> 第二步中的Go程序</p>
 <h2 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">echo &apos;print &quot;hello, world&quot;&apos; &gt; hello.py</div><div class="line">make</div><div class="line">export GOPATH=$PWD/build</div><div class="line">export PYTHONPATH=$PWD/build/lib/python2.7/site-packages</div><div class="line">tools/grumpc hello.py &gt; hello.go</div><div class="line">go build -o hello hello.go</div><div class="line">./hello</div></pre></td></tr></table></figure>
 <p>在新的grumpy代码中，使用上面的方法会报错，主要作者尚在优化编译的方法过程中, 后续应该会解决这个问题。<br>具体可以参考这个链接 <a href="https://github.com/google/grumpy/issues/366" target="_blank" rel="external">https://github.com/google/grumpy/issues/366</a></p>
-
+<h2 id="知乎上关于grumpy的评价-可以参考下"><a href="#知乎上关于grumpy的评价-可以参考下" class="headerlink" title="知乎上关于grumpy的评价,可以参考下"></a><a href="https://www.zhihu.com/question/54440711" target="_blank" rel="external">知乎上关于grumpy的评价</a>,可以参考下</h2>
       
     </div>
     
@@ -437,6 +438,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/15/Hidden-Features-of-Python/" rel="prev" title="Hidden Features of Python">
+                Hidden Features of Python <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -543,7 +548,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -629,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Grumpy"><span class="nav-number">1.</span> <span class="nav-text">Grumpy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组成"><span class="nav-number">1.1.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#限制"><span class="nav-number">1.2.</span> <span class="nav-text">限制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用方法"><span class="nav-number">2.</span> <span class="nav-text">使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法1-make-run命令行运行"><span class="nav-number">2.1.</span> <span class="nav-text">方法1: make run命令行运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法2-grumpc-and-grumprun"><span class="nav-number">2.2.</span> <span class="nav-text">方法2: grumpc and grumprun:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法3"><span class="nav-number">2.3.</span> <span class="nav-text">方法3</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Grumpy"><span class="nav-number">1.</span> <span class="nav-text">Grumpy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组成"><span class="nav-number">1.1.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#限制"><span class="nav-number">1.2.</span> <span class="nav-text">限制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用方法"><span class="nav-number">2.</span> <span class="nav-text">使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法1-make-run命令行运行"><span class="nav-number">2.1.</span> <span class="nav-text">方法1: make run命令行运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法2-grumpc-and-grumprun"><span class="nav-number">2.2.</span> <span class="nav-text">方法2: grumpc and grumprun:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法3"><span class="nav-number">2.3.</span> <span class="nav-text">方法3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知乎上关于grumpy的评价-可以参考下"><span class="nav-number">2.4.</span> <span class="nav-text">知乎上关于grumpy的评价,可以参考下</span></a></li></ol></li></ol></div>
             
 
           </div>
