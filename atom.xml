@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rkthub.cn/"/>
-  <updated>2017-08-15T15:05:48.000Z</updated>
+  <updated>2017-08-15T14:20:21.000Z</updated>
   <id>http://rkthub.cn/</id>
   
   <author>
@@ -14,20 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hidden Features of Python</title>
-    <link href="http://rkthub.cn/2017/08/15/Hidden-Features-of-Python/"/>
-    <id>http://rkthub.cn/2017/08/15/Hidden-Features-of-Python/</id>
-    <published>2017-08-15T15:05:48.000Z</published>
-    <updated>2017-08-15T15:05:48.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>grumpy使用</title>
