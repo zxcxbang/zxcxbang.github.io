@@ -1,708 +1,248 @@
 <!DOCTYPE html>
-
-
-
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
   
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Python,Go," />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="banglog" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
-
-
-
-
-
-
-<meta name="description" content="Grumpygrumpy是google的一个开源项目，可以将Python代码编译成Go代码，从而最后编译成静态可执行程序，不再需要VM。 基本上编译的流程是这样：python code –&amp;gt; grumpc –&amp;gt; golang code –&amp;gt; Binary。grumpy意思是Go running Python。 组成grumpy包括grumpy compiler(grumpc)、g">
+  <title>Grumpy使用 | SmallLog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Grumpygrumpy是google的一个开源项目，可以将Python代码编译成Go代码，从而最后编译成静态可执行程序，不再需要VM。 基本上编译的流程是这样：python code –&amp;gt; grumpc –&amp;gt; golang code –&amp;gt; Binary。grumpy意思是Go running Python。 组成grumpy包括grumpy compiler(grumpc)、g">
 <meta name="keywords" content="Python,Go">
 <meta property="og:type" content="article">
-<meta property="og:title" content="grumpy使用">
-<meta property="og:url" content="http://tuihub.cn/2017/08/10/grumpy使用/index.html">
-<meta property="og:site_name" content="banglog">
+<meta property="og:title" content="Grumpy使用">
+<meta property="og:url" content="http://tuihub.cn/2017/08/10/Grumpy使用/index.html">
+<meta property="og:site_name" content="SmallLog">
 <meta property="og:description" content="Grumpygrumpy是google的一个开源项目，可以将Python代码编译成Go代码，从而最后编译成静态可执行程序，不再需要VM。 基本上编译的流程是这样：python code –&amp;gt; grumpc –&amp;gt; golang code –&amp;gt; Binary。grumpy意思是Go running Python。 组成grumpy包括grumpy compiler(grumpc)、g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-15T14:20:21.000Z">
+<meta property="og:updated_time" content="2019-10-06T00:24:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="grumpy使用">
+<meta name="twitter:title" content="Grumpy使用">
 <meta name="twitter:description" content="Grumpygrumpy是google的一个开源项目，可以将Python代码编译成Go代码，从而最后编译成静态可执行程序，不再需要VM。 基本上编译的流程是这样：python code –&amp;gt; grumpc –&amp;gt; golang code –&amp;gt; Binary。grumpy意思是Go running Python。 组成grumpy包括grumpy compiler(grumpc)、g">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://tuihub.cn/2017/08/10/grumpy使用/"/>
-
-
-
-
-
-  <title>grumpy使用 | banglog</title>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <link rel="alternate" href="/atom.xml" title="SmallLog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
 
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
     
-  
-
-  <div class="container sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">banglog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://tuihub.cn"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
     </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">SmallLog</a>
+      </h1>
       
-        <p class="site-subtitle">think big but start small</p>
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Think big and start small</a>
+        </h2>
       
+    </div>
+  </div>
+</header>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"> </script>
+
+      <div class="outer">
+        <section id="main"><article id="post-Grumpy使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/10/Grumpy使用/" class="article-date">
+  <time datetime="2017-08-10T12:44:09.000Z" itemprop="datePublished">2017-08-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术笔记/">技术笔记</a>
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
   </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
+  <div class="article-inner">
     
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tuihub.cn/2017/08/10/grumpy使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="banglog">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="banglog">
-    </span>
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">grumpy使用</h1>
-        
+  
+    <h1 class="article-title" itemprop="name">
+      Grumpy使用
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-10T20:44:09+08:00">
-                2017-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">技术笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/08/10/grumpy使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/08/10/grumpy使用/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/08/10/grumpy使用/" class="leancloud_visitors" data-flag-title="grumpy使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
+        <!-- Table of Contents -->
+        
         <h1 id="Grumpy"><a href="#Grumpy" class="headerlink" title="Grumpy"></a>Grumpy</h1><p>grumpy是google的一个开源项目，可以将Python代码编译成Go代码，从而最后编译成静态可执行程序，不再需要VM。 基本上编译的流程是这样：python code –&gt; grumpc –&gt; golang code –&gt; Binary。grumpy意思是Go running Python。</p>
 <h2 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h2><p>grumpy包括grumpy compiler(grumpc)、grumpy runtime(golang runtime)、grumpy library(Python third library or golang lib) 三部分。</p>
+<a id="more"></a>
+
 <h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><ul>
 <li>不支持exec，eval, compile等动态特性，因为grumpy是把Python代码编译成静态的Go代码。</li>
 <li>不支持C扩展</li>
 </ul>
 <h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="方法1-make-run命令行运行"><a href="#方法1-make-run命令行运行" class="headerlink" title="方法1: make run命令行运行"></a>方法1: make run命令行运行</h2><p>最简单的就是在命令行直接执行make run，它实际上是使用了一个grumprun脚本，从标准输入中读取python代码并编译和运行，以下命令默认是在Grumpy源代码根目录下执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;print &apos;hello, world&apos;&quot; | make run</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;print &apos;hello, world&apos;&quot; | make run</span><br></pre></td></tr></table></figure>
+
 <h2 id="方法2-grumpc-and-grumprun"><a href="#方法2-grumpc-and-grumprun" class="headerlink" title="方法2: grumpc and grumprun:"></a>方法2: grumpc and grumprun:</h2><p>对于复杂的程序，可以使用grumpc编译成Go代码，最后再使用Go build编译成可执行程序。 由于程序最后都是静态链接，所以Grumpy工具链必须在GOPATH路径下能找到所有编译后的Go模块。Grumpy在GOPATH的下__python__子目录查找对应的Go模块。</p>
 <p>首先设置环境变量,主要是Grumpy runtime的目录和Python模块目录。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line">export PATH=$PWD/build/bin:$PATH</div><div class="line">export GOPATH=$PWD/build</div><div class="line">export PYTHONPATH=$PWD/build/lib/python2.7/site-packages</div></pre></td></tr></table></figure>
-<p>先用下面的命令检测环境变量设置有没有问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &apos;import sys; print sys.version&apos; | grumprun</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">export PATH=$PWD/build/bin:$PATH</span><br><span class="line">export GOPATH=$PWD/build</span><br><span class="line">export PYTHONPATH=$PWD/build/lib/python2.7/site-packages</span><br></pre></td></tr></table></figure>
+
+<p>先用下面的命令检测环境变量设置有没有问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;import sys; print sys.version&apos; | grumprun</span><br></pre></td></tr></table></figure>
+
 <p>接下来，先写好例子代码放到对应的 __python__子目录下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &apos;def hello(): print &quot;hello, world&quot;&apos; &gt; $GOPATH/src/__python__/hello.py</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;def hello(): print &quot;hello, world&quot;&apos; &gt; $GOPATH/src/__python__/hello.py</span><br></pre></td></tr></table></figure>
+
 <p>编译成模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir -p $GOPATH/src/__python__/hello</div><div class="line">grumpc -modname=hello $GOPATH/src/__python__/hello.py &gt; $GOPATH/src/__python__/hello/module.go</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p $GOPATH/src/__python__/hello</span><br><span class="line">grumpc -modname=hello $GOPATH/src/__python__/hello.py &gt; $GOPATH/src/__python__/hello/module.go</span><br></pre></td></tr></table></figure>
+
 <p>现在就可以在python代码中引入”__python__/hello”模块,使用grumprun来运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &apos;from hello import hello; hello()&apos; | grumprun</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;from hello import hello; hello()&apos; | grumprun</span><br></pre></td></tr></table></figure>
+
 <p>1.把python代码编译成Go包<br>2.编写一个Go主程序并且引入第一步生成的包<br>3.执行<code>go run</code> 第二步中的Go程序</p>
-<h2 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">echo &apos;print &quot;hello, world&quot;&apos; &gt; hello.py</div><div class="line">make</div><div class="line">export GOPATH=$PWD/build</div><div class="line">export PYTHONPATH=$PWD/build/lib/python2.7/site-packages</div><div class="line">tools/grumpc hello.py &gt; hello.go</div><div class="line">go build -o hello hello.go</div><div class="line">./hello</div></pre></td></tr></table></figure>
-<p>在新的grumpy代码中，使用上面的方法会报错，主要作者尚在优化编译的方法过程中, 后续应该会解决这个问题。<br>具体可以参考这个链接 <a href="https://github.com/google/grumpy/issues/366" target="_blank" rel="external">https://github.com/google/grumpy/issues/366</a></p>
-<h2 id="知乎上关于grumpy的评价-可以参考下"><a href="#知乎上关于grumpy的评价-可以参考下" class="headerlink" title="知乎上关于grumpy的评价,可以参考下"></a><a href="https://www.zhihu.com/question/54440711" target="_blank" rel="external">知乎上关于grumpy的评价</a>,可以参考下</h2>
+<h2 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;print &quot;hello, world&quot;&apos; &gt; hello.py</span><br><span class="line">make</span><br><span class="line">export GOPATH=$PWD/build</span><br><span class="line">export PYTHONPATH=$PWD/build/lib/python2.7/site-packages</span><br><span class="line">tools/grumpc hello.py &gt; hello.go</span><br><span class="line">go build -o hello hello.go</span><br><span class="line">./hello</span><br></pre></td></tr></table></figure>
+
+<p>在新的grumpy代码中，使用上面的方法会报错，主要作者尚在优化编译的方法过程中, 后续应该会解决这个问题。<br>具体可以参考这个链接 <a href="https://github.com/google/grumpy/issues/366" target="_blank" rel="noopener">https://github.com/google/grumpy/issues/366</a></p>
+<h2 id="知乎上关于grumpy的评价-可以参考下"><a href="#知乎上关于grumpy的评价-可以参考下" class="headerlink" title="知乎上关于grumpy的评价,可以参考下"></a><a href="https://www.zhihu.com/question/54440711" target="_blank" rel="noopener">知乎上关于grumpy的评价</a>,可以参考下</h2>
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
-            <a href="/tags/Go/" rel="tag"># Go</a>
-          
-        </div>
-      
-
+    <footer class="article-footer">
+      <a data-url="http://tuihub.cn/2017/08/10/Grumpy使用/" data-id="ck1e8wd5400073szvkwxccbmk" class="article-share-link">分享</a>
       
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/08/04/Grumpy！Go-running-Python！-译/" rel="next" title="Grumpy！Go running Python！(译)">
-                <i class="fa fa-chevron-left"></i> Grumpy！Go running Python！(译)
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
     </footer>
   </div>
   
+    
+    
+<nav id="article-nav">
   
   
-  </article>
+    <a href="/2017/08/04/Grumpy-Go-running-Python/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Grumpy Go running Python</div>
+    </a>
+  
+</nav>
 
-
-
-    <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
-  }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
+  
+</article>
+ 
+     
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
+     
+       
+       
+      
+      
   </div>
-
-
-        </div>
-        
-          
+ 
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpeg"
-               alt="banglog" />
-          <p class="site-author-name" itemprop="name">banglog</p>
+</section>
            
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/">
-                <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">11</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              其他链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://36kr.com" title="36Kr" target="_blank">36Kr</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://readhub.me/" title="Readhub" target="_blank">Readhub</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://qukuai.com/" title="区块" target="_blank">区块</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
-      </section>
-
+    <aside id="sidebar">
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Grumpy"><span class="nav-number">1.</span> <span class="nav-text">Grumpy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组成"><span class="nav-number">1.1.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#限制"><span class="nav-number">1.2.</span> <span class="nav-text">限制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用方法"><span class="nav-number">2.</span> <span class="nav-text">使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法1-make-run命令行运行"><span class="nav-number">2.1.</span> <span class="nav-text">方法1: make run命令行运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法2-grumpc-and-grumprun"><span class="nav-number">2.2.</span> <span class="nav-text">方法2: grumpc and grumprun:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法3"><span class="nav-number">2.3.</span> <span class="nav-text">方法3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知乎上关于grumpy的评价-可以参考下"><span class="nav-number">2.4.</span> <span class="nav-text">知乎上关于grumpy的评价,可以参考下</span></a></li></ol></li></ol></div>
-            
-
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Grumpy"><span class="toc-number">1.</span> <span class="toc-text">Grumpy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组成"><span class="toc-number">1.1.</span> <span class="toc-text">组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#限制"><span class="toc-number">1.2.</span> <span class="toc-text">限制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用方法"><span class="toc-number">2.</span> <span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法1-make-run命令行运行"><span class="toc-number">2.1.</span> <span class="toc-text">方法1: make run命令行运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法2-grumpc-and-grumprun"><span class="toc-number">2.2.</span> <span class="toc-text">方法2: grumpc and grumprun:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法3"><span class="toc-number">2.3.</span> <span class="toc-text">方法3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知乎上关于grumpy的评价-可以参考下"><span class="toc-number">2.4.</span> <span class="toc-text">知乎上关于grumpy的评价,可以参考下</span></a></li></ol></li></ol>
           </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
+      </div>
     </div>
-  </aside>
 
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
   
-  &copy;  2013 - 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">banglog</span>
-</div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-
-        
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2019 SmallLog&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;2015-2019
+    </div>
   </div>
-
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+    </div>
+    <nav id="mobile-nav">
   
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
 </script>
+      
 
-
-
-
-
-
-
-
+  
 
   
 
@@ -712,222 +252,24 @@
 
 
 
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
 
+<!-- author:forvoid end -->
 
+<!-- author:forvoid end -->
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+ <script src="/js/is.js"></script>
 
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-    
-      <script id="dsq-count-scr" src="https://allen-ever-logs.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://tuihub.cn/2017/08/10/grumpy使用/';
-          this.page.identifier = '2017/08/10/grumpy使用/';
-          this.page.title = 'grumpy使用';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://allen-ever-logs.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("3fVo0V1cY09U71QgdBSciWLD-gzGzoHsz", "1SecawT1w6Wfu5O94DbOC8hx");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+  </div>
 </body>
 </html>
