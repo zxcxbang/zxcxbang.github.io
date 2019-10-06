@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tuihub.cn/about/index.html</loc>
+    
+    <lastmod>2019-10-06T02:51:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tuihub.cn/2017/08/10/How-To-Use-Grump/</loc>
     
     <lastmod>2019-10-06T00:38:31.000Z</lastmod>
@@ -94,13 +101,6 @@
   
   <url>
     <loc>http://tuihub.cn/404/index.html</loc>
-    
-    <lastmod>2017-08-15T14:20:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tuihub.cn/about/index.html</loc>
     
     <lastmod>2017-08-15T14:20:21.000Z</lastmod>
     
