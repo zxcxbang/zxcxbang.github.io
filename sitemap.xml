@@ -86,13 +86,6 @@
   </url>
   
   <url>
-    <loc>http://tuihub.cn//404.html</loc>
-    
-    <lastmod>2017-08-15T14:20:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://tuihub.cn/google32032512d5322d8d.html</loc>
     
     <lastmod>2017-08-15T14:20:21.000Z</lastmod>
@@ -100,7 +93,7 @@
   </url>
   
   <url>
-    <loc>http://tuihub.cn/404/index.html</loc>
+    <loc>http://tuihub.cn//404.html</loc>
     
     <lastmod>2017-08-15T14:20:21.000Z</lastmod>
     
@@ -122,6 +115,13 @@
   
   <url>
     <loc>http://tuihub.cn/tags/index.html</loc>
+    
+    <lastmod>2017-08-15T14:20:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tuihub.cn/404/index.html</loc>
     
     <lastmod>2017-08-15T14:20:21.000Z</lastmod>
     
