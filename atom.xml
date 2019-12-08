@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tuihub.cn/"/>
-  <updated>2019-12-08T07:48:51.000Z</updated>
+  <updated>2019-12-08T07:52:21.000Z</updated>
   <id>http://tuihub.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://tuihub.cn/2019/12/08/%E5%A6%82%E4%BD%95%E6%89%A9%E5%A4%A7%E5%92%8C%E5%8E%8B%E7%BC%A9%E6%95%B4%E7%90%86%E7%A8%80%E7%96%8F%E7%A3%81%E7%9B%98%E6%98%A0%E5%83%8FSparsebundle%E6%96%87%E4%BB%B6/"/>
     <id>http://tuihub.cn/2019/12/08/%E5%A6%82%E4%BD%95%E6%89%A9%E5%A4%A7%E5%92%8C%E5%8E%8B%E7%BC%A9%E6%95%B4%E7%90%86%E7%A8%80%E7%96%8F%E7%A3%81%E7%9B%98%E6%98%A0%E5%83%8FSparsebundle%E6%96%87%E4%BB%B6/</id>
     <published>2019-12-08T07:39:38.000Z</published>
-    <updated>2019-12-08T07:48:51.000Z</updated>
+    <updated>2019-12-08T07:52:21.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="稀疏磁盘映像Sparsebundle使用技巧"><a href="#稀疏磁盘映像Sparsebundle使用技巧" class="headerlink" title="稀疏磁盘映像Sparsebundle使用技巧"></a>稀疏磁盘映像Sparsebundle使用技巧</h2><h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><ol><li>由于 “.sparseimage” 映像文件容量可变，因此当其容量不断增大时，有时会导致容纳这个映像文件的物理卷宗（或硬盘分区）容量不足。这个时候 “.sparseimage” 文件必须转移到一个更大的物理磁盘或分区。</li><li>如上所述，当往接入的 “.sparseimage” 文件叶榕文件导致容量自动增大时，必须使用 Disk Utility, hdiutil, 或其他工具来进行算法修正。</li></ol><h3 id="重设大小resize"><a href="#重设大小resize" class="headerlink" title="重设大小resize"></a>重设大小resize</h3><p>当疏散磁盘映像文件没有接入系统时， .sparseimage 文件可以通过 Disk Utility 的 Resize Image 功能或“终端”的命令行来改变大小。如在下例中，疏散磁盘映像文件可最大扩展到 50 GB:</p><blockquote><p><strong>hdiutil resize -size 50g MyFile.sparseimage</strong></p></blockquote><h3 id="压缩-shrink"><a href="#压缩-shrink" class="headerlink" title="压缩(shrink)"></a>压缩(shrink)</h3><a id="more"></a><p>同样，一个 .sparseimage 文件容量增长后又有文件删除，可以用以下命令进行 “压缩”(需要先卸载这个sparseimage):</p><blockquote><p><strong>hdiutil compact MyFile.sparseimage</strong><br>如果碰到出错：<br>如：hdiutil: compact failed – Function not implemented<br>参考下这个页面：<br>terminal - hdiutil: compact failed – Function not implemented - Ask Different<br><a href="https://apple.stackexchange.com/questions/132147/hdiutil-compact-failed-function-not-implemented" target="_blank" rel="noopener">https://apple.stackexchange.com/questions/132147/hdiutil-compact-failed-function-not-implemented</a><br>充电情况下再运行这个命令，或者使用-batteryallowed等参数, 详看hdiutil compact –help..<br>删除sparsebundle里的某些文件，有时它是放在某些特殊目录里，那就要先删除后再hdiutil compact，如下：</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sh-3.2# du -h -d 1</span><br><span class="line">188K./.DocumentRevisions-V100</span><br><span class="line">508K./.fseventsd</span><br><span class="line"> 19G./.TemporaryItems &lt;--- 在itunes里删除的iOS备份就在这里</span><br><span class="line">  0B./.Trashes</span><br><span class="line">786M./iTunes</span><br><span class="line">136K./mac_ssh</span><br><span class="line">1020M./misc</span><br><span class="line"> 20K./MobileSync</span><br><span class="line">9.7G./Pictures</span><br><span class="line">4.0K./sec</span><br><span class="line"> 31G.</span><br><span class="line">sh-3.2# cd ./.TemporaryItems/</span><br><span class="line">sh-3.2# du -h -d 1</span><br><span class="line">  0B./folders.0</span><br><span class="line"> 19G./folders.502</span><br><span class="line"> 19G.</span><br><span class="line">sh-3.2#</span><br></pre></td></tr></table></figure><p>关于命令 hdiutil 的详细内容可以通过以下命令查询:</p><blockquote><p>man hdiutil</p></blockquote><blockquote><p>参考网页：<br>mac osx - How to reclaim all/most free space from a sparsebundle on OS X - Server Fault<br><a href="https://serverfault.com/questions/14112/how-to-reclaim-all-most-free-space-from-a-sparsebundle-on-os-x" target="_blank" rel="noopener">https://serverfault.com/questions/14112/how-to-reclaim-all-most-free-space-from-a-sparsebundle-on-os-x</a><br>2018-10-06T01:23:33.653Z</p></blockquote><h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>Mac OS X v10.5 (Leopard) 中引入了一个新概念“稀疏束” （sparse bundle）.[1] 稀疏束是一种文件的 捆绑 形式，而不是单纯的一个文件。当磁盘映像内容改变时，捆绑内容相应的改变，创建或删除。这个机制可使备份软件 (如 Time Machine) 更有效的工作。</p>]]></content>
     
@@ -101,9 +101,9 @@
       <category term="技术笔记" scheme="http://tuihub.cn/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Go" scheme="http://tuihub.cn/tags/Go/"/>
-    
       <category term="Python" scheme="http://tuihub.cn/tags/Python/"/>
+    
+      <category term="Go" scheme="http://tuihub.cn/tags/Go/"/>
     
   </entry>
   
@@ -127,9 +127,9 @@
       <category term="技术笔记" scheme="http://tuihub.cn/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Go" scheme="http://tuihub.cn/tags/Go/"/>
-    
       <category term="Python" scheme="http://tuihub.cn/tags/Python/"/>
+    
+      <category term="Go" scheme="http://tuihub.cn/tags/Go/"/>
     
   </entry>
   
@@ -238,9 +238,9 @@
       <category term="学习资源" scheme="http://tuihub.cn/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
     
     
-      <category term="serverless" scheme="http://tuihub.cn/tags/serverless/"/>
-    
       <category term="无服务" scheme="http://tuihub.cn/tags/%E6%97%A0%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="serverless" scheme="http://tuihub.cn/tags/serverless/"/>
     
   </entry>
   
