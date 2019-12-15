@@ -238,9 +238,9 @@
       <category term="学习资源" scheme="http://tuihub.cn/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
     
     
-      <category term="无服务" scheme="http://tuihub.cn/tags/%E6%97%A0%E6%9C%8D%E5%8A%A1/"/>
-    
       <category term="serverless" scheme="http://tuihub.cn/tags/serverless/"/>
+    
+      <category term="无服务" scheme="http://tuihub.cn/tags/%E6%97%A0%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
